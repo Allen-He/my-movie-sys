@@ -39,7 +39,7 @@ import MovieService from "./services/MovieService";
 // m2.name = '只有芸知道';
 // m2.types = ['爱情'];
 // m2.areas = ['成都'];
-// m2.duration = 100;
+// // m2.duration = 100;
 
 // MovieService.add(m2).then(res => {
 //   console.log(res);
@@ -62,4 +62,12 @@ import MovieService from "./services/MovieService";
 
 // MovieService.delete('61f7b049d43363e492547ade').then(res => console.log(res))
 
-MovieService.findById('61f7abdb01167a5f1e68ee55').then(res => console.log(res));
+// MovieService.findById('61f7abdb01167a5f1e68ee55').then(res => console.log(res));
+
+// const condi: any = {
+//   page: 3,
+//   limit: 5,
+//   key: ''
+// }
+// MovieService.find(condi).then(res => console.log(res, '----', res.data.length));
+
