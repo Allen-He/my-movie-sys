@@ -1,5 +1,5 @@
 import Mongoose from "mongoose";
-import { Movie } from "../entities/Movie";
+import Movie from "../entities/Movie";
 
 export interface IMovie extends Movie, Mongoose.Document {}
 

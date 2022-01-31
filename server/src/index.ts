@@ -1,8 +1,9 @@
 import "reflect-metadata";
 import { plainToClass } from "class-transformer";
 import { validate } from "class-validator";
-import { Movie } from "./entities/Movie";
+import Movie from "./entities/Movie";
 import { MovieModel } from "./db";
+import MovieService from "./services/MovieService";
 
 
 // function getRandomNum(min: number, max: number): number {
@@ -34,13 +35,13 @@ import { MovieModel } from "./db";
 
 
 
-// const m = new Movie();
-// m.name = '只有芸知道';
-// m.types = ['爱情'];
-// m.areas = ['成都'];
-// m.duration = 100;
+// const m2 = new Movie();
+// m2.name = '只有芸知道';
+// m2.types = ['爱情'];
+// m2.areas = ['成都'];
+// m2.duration = 100;
 
-// validate(m).then(res => {
+// MovieService.add(m2).then(res => {
 //   console.log(res);
 // })
 
@@ -51,9 +52,14 @@ import { MovieModel } from "./db";
 //   duration: 100,
 //   isHot: true
 // };
-
-// const mObj = plainToClass(Movie, m);
-
-// validate(mObj).then(res => {
+// MovieService.add(m).then(res => {
 //   console.log(res);
 // })
+// const m3: any = {
+//   name: 'xxxxx',
+// }
+// MovieService.edit('61f7abdb01167a5f1e68ee56', m3).then(res => console.log(res))
+
+// MovieService.delete('61f7b049d43363e492547ade').then(res => console.log(res))
+
+MovieService.findById('61f7abdb01167a5f1e68ee55').then(res => console.log(res));
