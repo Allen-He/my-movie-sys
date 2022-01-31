@@ -1,13 +1,13 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
-    "rules": {
-        "no-empty": true,
-        "no-console": false,
-        "eofline": true
-    },
-    "rulesDirectory": []
+	"defaultSeverity": "error",
+	"extends": [
+		"tslint:recommended"
+	],
+	"jsRules": {},
+	"rules": {
+		"no-empty": true,
+		"no-console": false,
+		"eofline": true
+	},
+	"rulesDirectory": []
 }
