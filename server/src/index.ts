@@ -1,12 +1,15 @@
 import "reflect-metadata";
 import express from "express";
 import movieRouter from "./routers/MovieRouter";
+import UploadRouter from "./routers/UploadRouter";
 
 const app = express();
 
+app.use('/upload', express.static('public/upload')); // 相对于进程运行的根路径
 app.use(express.json()); // 解析json格式的请求体
 
 app.use('/api/movie', movieRouter);
+app.use('/api/upload', UploadRouter);
 
 app.listen(3000, () => {
   console.log('正在监听3000端口');
