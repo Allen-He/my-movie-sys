@@ -1,9 +1,16 @@
 import "reflect-metadata";
-import { plainToClass } from "class-transformer";
-import { validate } from "class-validator";
-import Movie from "./entities/Movie";
-import { MovieModel } from "./db";
-import MovieService from "./services/MovieService";
+import express from "express";
+import movieRouter from "./routers/MovieRouter";
+
+const app = express();
+
+app.use(express.json()); // 解析json格式的请求体
+
+app.use('/api/movie', movieRouter);
+
+app.listen(3000, () => {
+  console.log('正在监听3000端口');
+})
 
 
 // function getRandomNum(min: number, max: number): number {
