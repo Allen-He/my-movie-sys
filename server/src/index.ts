@@ -2,18 +2,23 @@ import "reflect-metadata";
 import express from "express";
 import movieRouter from "./routers/MovieRouter";
 import UploadRouter from "./routers/UploadRouter";
+import history from "connect-history-api-fallback";
 
 const app = express();
 
+app.use(history()); //解决“单页应用子页面刷新会出现白屏”的问题
 app.use('/upload', express.static('public/upload')); // 相对于进程运行的根路径
+app.use('/', express.static('public/client'));
 app.use(express.json()); // 解析json格式的请求体
 
 app.use('/api/movie', movieRouter);
 app.use('/api/upload', UploadRouter);
 
+
 app.listen(3000, () => {
   console.log('正在监听3000端口');
 })
+
 
 
 // function getRandomNum(min: number, max: number): number {
@@ -42,8 +47,6 @@ app.listen(3000, () => {
 //     }
 //   });
 // }
-
-
 
 // const m2 = new Movie();
 // m2.name = '只有芸知道';

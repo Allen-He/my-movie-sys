@@ -16,4 +16,5 @@ export default defineConfig({
       'changeOrigin': true,
     },
   },
+  outputPath: '../server/public/client'
 });
