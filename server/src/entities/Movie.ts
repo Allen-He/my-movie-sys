@@ -4,13 +4,13 @@ import BaseEntity from "./BaseEntity";
 
 export default class Movie extends BaseEntity {
   @IsNotEmpty({message: '电影名称不能为空'})
-  @Type(() => String) //利用装饰器，使“类型约束”在运行时生效
+  @Type(() => String) // 利用装饰器，使“类型约束”在运行时生效
   public name: string;
 
   @IsNotEmpty({message: '电影类型不能为空'})
   @ArrayMinSize(1, {message: '电影类型至少有一个'})
   @IsArray({message: '电影类型必须为数组'})
-  @Type(() => String) //利用装饰器，使“类型约束”在运行时生效(class-transformer库建议：如果是一个数组，则直接返回数组的每一项的类型即可。然后配合上述class-validator提供的装饰器@IsArray进行使用)
+  @Type(() => String) // 利用装饰器，使“类型约束”在运行时生效(class-transformer库建议：如果是一个数组，则直接返回数组的每一项的类型即可。然后配合上述class-validator提供的装饰器@IsArray进行使用)
   public types: string[];
 
   @IsNotEmpty({message: '上映地区不能为空'})

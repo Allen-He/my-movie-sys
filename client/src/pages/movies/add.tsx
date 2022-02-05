@@ -1,5 +1,9 @@
-import React from 'react';
+import MoviesForm from '@/components/MoviesForm';
 
 export default function add() {
-  return <div>添加电影</div>;
+  return <MoviesForm initialValues={{
+    isComing: false,
+    isHot: false,
+    isClassic: false
+  }} />
 }

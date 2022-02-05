@@ -4,6 +4,12 @@ import ResponseHelper from "./ResponseHelper";
 
 const movieRouter = express.Router();
 
+/** 获取电影的“类型、地区”取值 */
+movieRouter.get('/extra', async (req, res) => {
+  const result = await MovieService.getExtraInfo();
+  ResponseHelper.sendData(result, res);
+})
+
 movieRouter.get('/:id', async (req, res) => {
   try {
     const moiveId = req.params.id;

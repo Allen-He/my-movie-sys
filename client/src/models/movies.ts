@@ -1,6 +1,6 @@
 import { ResponseDataByPagination } from '@/services/CommonTypes';
 import MovieService, { Movie } from '@/services/MovieService';
-import { Effect, Reducer, Subscription } from 'umi';
+import { history, Effect, Reducer, Subscription } from 'umi';
 import { State } from './CommonTypes';
 
 export interface MovieModelState {
@@ -23,8 +23,9 @@ export interface MovieModelType {
   };
   effects: {
     fetchMovies: Effect;
+    changeUrl: Effect;
   };
-  // subscriptions: { test: Subscription };
+  subscriptions: { listenUrlChange: Subscription };
 }
 
 
@@ -32,7 +33,7 @@ const movieModel: MovieModelType = {
   state: {
     condition: {
       page: 1,
-      limit: 10,
+      limit: 6,
       key: ''
     },
     result: {
@@ -63,14 +64,41 @@ const movieModel: MovieModelType = {
       const resp = yield call(MovieService.find, condition);
       yield put({
         type: 'setResult',
-        payload: { total: resp.total, data: resp.data }
+        payload: { total: resp.total, datas: resp.data }
       });
+    },
+    *changeUrl({ payload }, { call, select }) {
+      const oldCondition = yield select((state: State) => state.movies.condition);
+      const newCondition = { ...oldCondition, ...payload };
+      const { page, limit, key } = newCondition;
+      history.push(`/movies?page=${page}&limit=${limit}&key=${key}`);
     }
   },
-  // subscriptions: {
-  //   test({ dispatch, history }) {
-  //   },
-  // },
+  subscriptions: {
+    listenUrlChange({ dispatch, history }) {
+      history.listen((newLoc) => {
+        if(newLoc.pathname !== '/movies') {
+          return; //如果当前不为电影查询页，则什么都不做
+        }
+        const newCondition = getConditionByQuery((newLoc as any).query);
+        dispatch({
+          type: 'setCondition',
+          payload: newCondition
+        });
+        dispatch({ type: 'fetchMovies' });
+      })
+    },
+  },
 };
+
+/** 根据传入的query对象得到正确格式的condition对象 */
+function getConditionByQuery(query: any) {
+  const { page, limit, key } = query;
+  const res: any = {};
+  page && (res.page = +page);
+  limit && (res.limit = +limit);
+  key && (res.key = key);
+  return res;
+}
 
 export default movieModel;

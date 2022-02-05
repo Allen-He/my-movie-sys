@@ -14,6 +14,11 @@ export interface Movie {
   poster?: string;
 }
 
+export interface MovieExtraInfo {
+  types: string[];
+  areas: string[];
+}
+
 export default class MovieService {
   public static async add(movie: Movie): Promise<ResponseData<Movie> | ResponseError> {
     const { data } = await axios.post('/api/movie', movie);
@@ -35,6 +40,10 @@ export default class MovieService {
     const { data } = await axios.get('/api/movie', {
       params: condition
     });
+    return data;
+  }
+  public static async getExtraInfo(): Promise<ResponseData<MovieExtraInfo>> {
+    const { data } = await axios.get('/api/movie/extra');
     return data;
   }
 }

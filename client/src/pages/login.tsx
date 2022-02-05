@@ -1,5 +1,5 @@
-import React from 'react';
+import LoginFormContainer from '@/components/connect/LoginFormContainer';
 
 export default function login() {
-  return <div>登录页</div>;
+  return <LoginFormContainer />;
 }

@@ -62,4 +62,10 @@ export default class MovieService {
       errors: []
     }
   }
+  public static async getExtraInfo(): Promise<object> {
+    return {
+      types: ['喜剧', '爱情', '动作', '枪战', '犯罪', '惊悚', '恐怖', '悬疑', '动画', '家庭', '奇幻', '魔幻', '科幻', '战争', '青春'],
+      areas: ['华语', '香港地区', '美国', '欧洲', '韩国', '日本','泰国','印度','其它'],
+    }
+  }
 }
