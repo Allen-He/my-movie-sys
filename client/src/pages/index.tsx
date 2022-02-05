@@ -1,5 +1,9 @@
 import React from 'react';
 
-export default function index() {
+const Index = () => {
   return <div>欢迎页</div>;
 }
+
+// Index.wrappers = ['@/wrappers/Admin'];
+
+export default Index;

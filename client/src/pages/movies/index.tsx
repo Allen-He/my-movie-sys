@@ -1,6 +1,10 @@
 import React from 'react';
 import MoviesPageContainer from '@/components/connect/MoviesPageContainer';
 
-export default function index() {
+const index = () => {
   return <MoviesPageContainer />;
 }
+
+// index.wrappers = ['@/wrappers/Admin'];
+
+export default index;

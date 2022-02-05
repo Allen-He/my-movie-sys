@@ -1,8 +1,8 @@
+import React, { useState, useEffect } from 'react';
 import MoviesForm from '@/components/MoviesForm';
 import MovieService from '@/services/MovieService';
-import React, { useState, useEffect } from 'react';
 
-export default function Detail({ match }: any) {
+const detail = ({ match }: any) => {
   const [formValues, setFormValues] = useState();
   
   useEffect(() => {
@@ -17,3 +17,7 @@ export default function Detail({ match }: any) {
     </>
   );
 }
+
+// detail.wrappers = ['@/wrappers/Admin'];
+
+export default detail;
