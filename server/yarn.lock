@@ -191,7 +191,7 @@ brace-expansion@^1.1.7:
     balanced-match "^1.0.0"
     concat-map "0.0.1"
 
-bson@^4.2.2, bson@^4.6.0:
+bson@^4.2.2, bson@^4.6.0, bson@^4.6.1:
   version "4.6.1"
   resolved "https://registry.npmmirror.com/bson/-/bson-4.6.1.tgz#2b5da517539bb0f7f3ffb54ac70a384ca899641c"
   integrity sha512-I1LQ7Hz5zgwR4QquilLNZwbhPw0Apx7i7X9kGMBTsqPdml/03Q9NBtD9nt/19ahjlphktQImrnderxqpzeVDjw==
@@ -516,6 +516,11 @@ inherits@2, inherits@2.0.4, inherits@^2.0.3, inherits@~2.0.1, inherits@~2.0.3:
   resolved "https://registry.npmmirror.com/inherits/-/inherits-2.0.4.tgz#0fa2c64f932917c3433a0ded55363aae37416b7c"
   integrity sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
 
+ip@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.npmmirror.com/ip/-/ip-1.1.5.tgz#bdded70114290828c0a039e72ef25f5aaec4354a"
+  integrity sha512-rBtCAQAJm8A110nbwn6YdveUnuZH3WrC36IwkRXxDnq53JvXA2NVQvB7IHyKomxK1MJ4VDNw3UtFDdXQ+AvLYA==
+
 ipaddr.js@1.9.1:
   version "1.9.1"
   resolved "https://registry.npmmirror.com/ipaddr.js/-/ipaddr.js-1.9.1.tgz#bff38543eeb8984825079ff3a2a8e6cbd46781b3"
@@ -625,6 +630,14 @@ mongodb-connection-string-url@^2.3.2:
     "@types/whatwg-url" "^8.2.1"
     whatwg-url "^11.0.0"
 
+mongodb-connection-string-url@^2.4.1:
+  version "2.4.2"
+  resolved "https://registry.npmmirror.com/mongodb-connection-string-url/-/mongodb-connection-string-url-2.4.2.tgz#422861119764796420889f9b0416b957e1b0bde0"
+  integrity sha512-mZUXF6nUzRWk5J3h41MsPv13ukWlH4jOMSk6astVeoZ1EbdTJyF5I3wxKkvqBAOoVtzLgyEYUvDjrGdcPlKjAw==
+  dependencies:
+    "@types/whatwg-url" "^8.2.1"
+    whatwg-url "^11.0.0"
+
 mongodb@4.2.2:
   version "4.2.2"
   resolved "https://registry.npmmirror.com/mongodb/-/mongodb-4.2.2.tgz#cd70568bd96003877e35358ad17a0c5de35c6dfd"
@@ -633,6 +646,18 @@ mongodb@4.2.2:
     bson "^4.6.0"
     denque "^2.0.1"
     mongodb-connection-string-url "^2.3.2"
+  optionalDependencies:
+    saslprep "^1.0.3"
+
+mongodb@4.3.1:
+  version "4.3.1"
+  resolved "https://registry.npmmirror.com/mongodb/-/mongodb-4.3.1.tgz#e346f76e421ec6f47ddea5c8f5140e6181aaeb94"
+  integrity sha512-sNa8APSIk+r4x31ZwctKjuPSaeKuvUeNb/fu/3B6dRM02HpEgig7hTHM8A/PJQTlxuC/KFWlDlQjhsk/S43tBg==
+  dependencies:
+    bson "^4.6.1"
+    denque "^2.0.1"
+    mongodb-connection-string-url "^2.4.1"
+    socks "^2.6.1"
   optionalDependencies:
     saslprep "^1.0.3"
 
@@ -651,15 +676,14 @@ mongoose@*:
     regexp-clone "1.0.0"
     sift "13.5.2"
 
-mongoose@^6.1.8:
-  version "6.1.8"
-  resolved "https://registry.npmmirror.com/mongoose/-/mongoose-6.1.8.tgz#8565c7610ceb81a9b0416ceb4bf0b709c8b83f6a"
-  integrity sha512-/voqwU2dtet3zAR73r8jdPhqluU1VzIAnk7ecXPJBgyXKREnwQrz40lfW7fLpaqhmMhsAbA+JQ7ICUn2vAVFLw==
+mongoose@^6.2.0:
+  version "6.2.0"
+  resolved "https://registry.npmmirror.com/mongoose/-/mongoose-6.2.0.tgz#07af7313779bc42701f35624c3320719afe6629f"
+  integrity sha512-kimHjks1FC4HkqM4FVNWxtGor6wYelHgl6eJ6GJmmJvMCI4FNGLwFceSL6hs7dHLZJnxIyGVqQjT/XTXCbjzpA==
   dependencies:
-    "@types/node" "< 17.0.6"
     bson "^4.2.2"
     kareem "2.3.3"
-    mongodb "4.2.2"
+    mongodb "4.3.1"
     mpath "0.8.4"
     mquery "4.0.2"
     ms "2.1.2"
@@ -896,6 +920,19 @@ sift@13.5.2:
   version "13.5.2"
   resolved "https://registry.npmmirror.com/sift/-/sift-13.5.2.tgz#24a715e13c617b086166cd04917d204a591c9da6"
   integrity sha512-+gxdEOMA2J+AI+fVsCqeNn7Tgx3M9ZN9jdi95939l1IJ8cZsqS8sqpJyOkic2SJk+1+98Uwryt/gL6XDaV+UZA==
+
+smart-buffer@^4.1.0:
+  version "4.2.0"
+  resolved "https://registry.npmmirror.com/smart-buffer/-/smart-buffer-4.2.0.tgz#6e1d71fa4f18c05f7d0ff216dd16a481d0e8d9ae"
+  integrity sha512-94hK0Hh8rPqQl2xXc3HsaBoOXKV20MToPkcXvwbISWLEs+64sBq5kFgn2kJDHb1Pry9yrP0dxrCI9RRci7RXKg==
+
+socks@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.npmmirror.com/socks/-/socks-2.6.1.tgz#989e6534a07cf337deb1b1c94aaa44296520d30e"
+  integrity sha512-kLQ9N5ucj8uIcxrDwjm0Jsqk06xdpBjGNQtpXy4Q8/QY2k+fY7nZH8CARy+hkbG+SGAovmzzuauCpBlb8FrnBA==
+  dependencies:
+    ip "^1.1.5"
+    smart-buffer "^4.1.0"
 
 sparse-bitfield@^3.0.3:
   version "3.0.3"
