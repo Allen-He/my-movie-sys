@@ -15,7 +15,7 @@ const LoginForm: React.FC<LoingFormProps> = (props) => {
 
   return (
     <div className={style.loginForm}>
-      <Title level={4}>欢迎登录-学生管理系统</Title>
+      <Title level={4}>欢迎登录-猫眼电影_后台管理系统</Title>
       <Space direction="vertical">
         <Input ref={countRef} placeholder="请输入账号" prefix={<UserOutlined />} />
         <Input.Password ref={pwdRef} placeholder="请输入密码" prefix={<EditOutlined />} />
